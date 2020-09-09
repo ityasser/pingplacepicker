@@ -44,6 +44,16 @@ android {
             maven { url "https://maven.google.com" }
         }
     }
+
+    tasks.withType(Copy) {
+        eachFile { println it.file }
+    }
+    jar {
+        enabled = true
+    }
+
+
+    task stage(dependsOn: ['clean','build','jar', 'installApp']){}
 }
 
 dependencies {
