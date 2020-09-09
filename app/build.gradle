@@ -1,4 +1,4 @@
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -34,6 +34,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     version = '1.1.5'
     group='com.github.ityasser'
 
@@ -44,14 +45,11 @@ android {
             maven { url "https://maven.google.com" }
         }
     }
-    subprojects {
-        tasks.withType(Test) {
-            jvmArgs "-javaagent:${project.rootDir}/"
-        }
-    }
 
 
 }
+
+
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
