@@ -1,2 +1,3 @@
-include ':library'
+include ':lib-pingplacepicker'
+include ':app'
 rootProject.name = "pingplacepicker"
