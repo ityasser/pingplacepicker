@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'android-maven'
-apply plugin: 'java'
 
 android {
     compileSdkVersion 29
@@ -45,14 +44,14 @@ android {
             maven { url "https://maven.google.com" }
         }
     }
-
-    task install(type: Copy) {
-        dependsOn getTasksByName('build', true)
-        doLast {
-            println "exec install task"
+    subprojects {
+        tasks.withType(Test) {
+            jvmArgs "-javaagent:${project.rootDir}/"
         }
     }
-    }
+
+
+}
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
