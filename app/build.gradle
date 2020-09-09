@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'android-maven'
+apply plugin: 'java'
 
 android {
     compileSdkVersion 29
@@ -46,11 +47,10 @@ android {
     }
 
     task install(type: Copy) {
-        dependsOn subprojects*.tasks*.findByName('build').minus(null)
+        dependsOn getTasksByName('build', true)
         doLast {
             println "exec install task"
         }
-        dependsOn getTasksByName('build', true)
     }
     }
 
