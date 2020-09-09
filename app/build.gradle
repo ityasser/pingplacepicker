@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'android-maven'
 
 android {
     compileSdkVersion 29
@@ -34,7 +34,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    version = '1.1.1'
+    version = '1.1.5'
     group='com.github.ityasser'
 
     allprojects {
@@ -45,15 +45,7 @@ android {
         }
     }
 
-    tasks.withType(Copy) {
-        eachFile { println it.file }
-    }
-    jar {
-        enabled = true
-    }
 
-
-    task stage(dependsOn: ['clean','build','jar', 'installApp']){}
 }
 
 dependencies {
