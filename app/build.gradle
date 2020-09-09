@@ -34,7 +34,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    version = '1.0.7'
+    version = '1.1.1'
     group='com.github.ityasser'
 
     allprojects {
